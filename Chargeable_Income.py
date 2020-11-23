@@ -58,7 +58,27 @@ df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_In
 
 print()
 print(df)
+print()
 
+# to validate the year_of_assessment, apply to this column
+print(df['year_of_assessment'])
+
+ # or item in df['year_of_assessment'] :
+# create a function to validate year_of_assessment
+
+print()
+print('--------------')
+def year_validation(year_value) :
+    if year_value >= 2007 and year_value <= 2018 :
+        result = "True"
+        print(result)
+    else:
+        result = "False"
+        print(result)
+
+
+# call the function 
+year_validation(2010)
 
 
 
