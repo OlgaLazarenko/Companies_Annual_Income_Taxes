@@ -70,15 +70,20 @@ print()
 print('--------------')
 def year_validation(year_value) :
     if year_value >= 2007 and year_value <= 2018 :
-        result = "True"
-        print(result)
+        result = "True"   
     else:
         result = "False"
-        print(result)
+    return result
+        
+
+df['year_of_assessment'] = df['year_of_assessment'].apply(lambda x: year_validation(x))
+print(df['year_of_assessment'])
 
 
-# call the function 
-year_validation(2010)
+
+   
+
+
 
 
 
