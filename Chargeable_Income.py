@@ -63,7 +63,7 @@ print('-----------------------------------------------------------------')
 
 # remove rows with year_of_assessment duplicates
 df.drop_duplicates(subset = "year_of_assessment",
-                            keep = False,
+                            keep = 'first', # keep the first duplicate,
                             inplace = True)
 
 print(df)
