@@ -9,7 +9,8 @@ The project uses the data available here: [Income of Companies by Income Type, A
 - [Income of Companies by Tax Group and Income Type](https://data.gov.sg/dataset/income-of-companies-by-income-type-annual?resource_id=be33c464-7566-402d-87e2-07ccf07c251d)
 
 ### The purpose of the project:
-- [] Read the data from the dataset using Python Pandas
+- [x] Read the data from the dataset using Python Pandas
+- [x] Remove rows with duplicates at the column 'year_of_assessment'
 - [] Validate the data, remove the duplicate rows, the rows containing invalid values or nulls
 - [] Write the validated data to the output files
 - [] Write the invalid data to the errors files, if possible perform the data correction
