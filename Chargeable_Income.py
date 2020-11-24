@@ -58,10 +58,21 @@ df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_In
 
 print()
 print(df)
-print()
+print('-----------------------------------------------------------------')
 
+
+# remove rows with year_of_assessment duplicates
+df.drop_duplicates(subset = "year_of_assessment",
+                            keep = False,
+                            inplace = True)
+
+print(df)
+print('____________________________________________________________________')
+'''
 # to validate the year_of_assessment, apply to this column
 print(df['year_of_assessment'])
+
+
 
  # or item in df['year_of_assessment'] :
 # create a function to validate year_of_assessment
@@ -77,11 +88,13 @@ def year_validation(year_value) :
         
 
 df['year_of_assessment'] = df['year_of_assessment'].apply(lambda x: year_validation(x))
-print(df['year_of_assessment'])
+# print(df['year_of_assessment'])
+'''
 
 
 
-   
+
+
 
 
 
