@@ -68,6 +68,11 @@ df.drop_duplicates(subset = "year_of_assessment",
 
 print(df)
 print('____________________________________________________________________')
+
+# sort data by the column year_of_assessment
+
+df = df.sort_values(by = 'year_of_assessment', ascending = True)
+print(df)
 '''
 # to validate the year_of_assessment, apply to this column
 print(df['year_of_assessment'])
