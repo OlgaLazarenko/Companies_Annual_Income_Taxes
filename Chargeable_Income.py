@@ -43,10 +43,47 @@ Additional:
 '''
 
 
-
+import csv, os
 import pandas as pd  
 import numpy as np  
 
+
+
+
+
+file_path = "E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv"
+
+# create a function to validate the column year_of_assessment,the range: 2007-2018, nulls are not allowed
+def validate_year(year_of_assessment) :
+    if year_of_assessment.isdigit() :
+        if 2007 <= int(year_of_assessment) <= 2018 :
+            result_year = True
+        else:
+            result_year = False
+    else:
+        result_year = False
+    return result_year
+
+
+
+# create a function to validate the other columns
+# the values should be positive numbers(integers or decimals), nulls are not allowed
+def validate_tax_value(tax) : 
+    tax = tax.replace('.','') # remove the dot from the value
+    tax = tax.replace(',','') # remove the comma from the value
+    result_tax = tax.isdigit() # to find out if the value only contains the digits 
+    return result_tax # the function will return True or False
+
+
+
+    
+# read the initial data and perform the data validation
+with open(file_path, 'rt') as data_file:
+    file_reader = csv.reader(data_file, delimiter =',')
+    for row in file_reader:
+        
+print()
+print()
 
 
 df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv', 
