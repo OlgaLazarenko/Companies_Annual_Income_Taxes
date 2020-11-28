@@ -21,3 +21,7 @@ Read the initial datasets, perform data cleansing, create visualizations
 - [] Create new columns, calculate the values 
 - [] Choose columns to create visualizations
 - [] Create the data visualizaitons to show the trends
+#### Because of the need to validate integer/ or decimal values  create global functions which can called for different projects 
+- [] to validate years
+- [] to validate numeric values
+- [] create global variables
