@@ -11,6 +11,8 @@ The project uses the data available here: [Income of Companies by Income Type, A
 ### The purpose of the project:
 - [x] Read the data from the dataset using Python code
 - [] Validate data, remove the rows with errors
+- [] Save the validated data in the output file
+- [] Read the output file with Pandas
 - [x] Remove rows with duplicates at the column 'year_of_assessment'
 - [x] Sort the data by the column 'year_of_assessment' ascening order 
 - [] Validate the data, remove the duplicate rows, the rows containing invalid values or nulls
