@@ -9,6 +9,7 @@ The project uses the data available here: [Income of Companies by Income Type, A
 - [Income of Companies by Tax Group and Income Type](https://data.gov.sg/dataset/income-of-companies-by-income-type-annual?resource_id=be33c464-7566-402d-87e2-07ccf07c251d)
 
 ### The purpose of the project:
+Read the initial datasets, perform data cleansing, create visualizations 
 #### Using Python
 - [x] Read the data from the dataset using Python code
 - [] Validate data, remove the rows with errors
