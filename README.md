@@ -17,8 +17,6 @@ The project uses the data available here: [Income of Companies by Income Type, A
 - [] Read the output file with Pandas
 - [x] Remove rows with duplicates at the column 'year_of_assessment'
 - [x] Sort the data by the column 'year_of_assessment' ascening order 
-- [] Validate the data, remove the duplicate rows, the rows containing invalid values or nulls
-- [] Write the validated data to the output files
-- [] Write the invalid data to the errors files, if possible perform the data correction
+- [] Create new columns, calculate the values 
 - [] Choose columns to create visualizations
 - [] Create the data visualizaitons to show the trends
