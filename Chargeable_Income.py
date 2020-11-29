@@ -76,14 +76,27 @@ def validate_tax_value(tax) :
 
 
 
-    
+'''    
 # read the initial data and perform the data validation
-with open(file_path, 'rt') as data_file:
-    file_reader = csv.reader(data_file, delimiter =',')
-    for row in file_reader:
-        
-print()
-print()
+with open(data_file, mode = 'r') as input_file :
+    with open(output_file_path, mode = 'w', newline = '') as output_file :
+        with open(error_file, mode = 'r', newline = '') as error_file :
+            file_reader = csv.reader(data_file, delimiter =',')
+            file_writer = csv.writer(output_file, delimiter = ',')
+            error_writer = csv.writer(error_file, delimiter = ',')
+            
+            line_count = 0
+            for line in file_reader :
+                if line_count == 0 : # the header
+                    header = line
+                    
+                    ofile_writer.writerow(header) # write the header to the output file
+                    errors_writer.writerow(header) # write the header to the errors file
+                    line_count += 1
+
+            for row in file_reader:
+'''       
+
 
 
 df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv', 
