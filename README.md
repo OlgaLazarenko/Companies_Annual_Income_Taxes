@@ -11,11 +11,11 @@ The project uses the data available here: [Income of Companies by Income Type, A
 ### The purpose of the project:
 Read the initial datasets, perform data cleansing, create visualizations 
 #### Using Python
-- [x] Read the data from the dataset using Python code
+- [x] Read the data from the dataset creating Python code
 - [] Validate data, remove the rows with errors
-- [] Save the validated data in the output file
+- [] Save the validated data in the output file; invalid data will be saved in the error file
 #### Using Pandas
-- [] Read the output file with Pandas
+- [] Read the output file with validated data using Pandas
 - [x] Remove rows with duplicates at the column 'year_of_assessment'
 - [x] Sort the data by the column 'year_of_assessment' ascening order 
 - [] Create new columns, calculate the values 
