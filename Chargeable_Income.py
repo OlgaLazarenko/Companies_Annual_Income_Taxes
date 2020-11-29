@@ -79,28 +79,79 @@ def validate_tax_value(tax) :
 data_file_path = 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv'
 output_file_path = 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income_Output.csv'
 error_file_path= 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income_Errors.csv'
+
+
 # read the initial data and perform the data validation
-with open(data_file_path, mode = 'r') as input_file :
-    with open(output_file_path, mode = 'w', newline = '') as output_file :
-        with open(error_file_path, mode = 'w', newline = '') as error_file :
-            input_reader = csv.reader(input_file, delimiter =',')
-            output_writer = csv.writer(output_file, delimiter = ',')
-            error_writer = csv.writer(error_file, delimiter = ',')
+with open(data_file_path, 'r') as input_file :
+    with open(output_file_path, 'w') as output_file :
+        with open(error_file_path, 'w') as error_file :
+            header = input_file.readline()
+
+            output_file.write(header) # write the header to the output_file
+            error_file.write(header) # write the header to the error_file
+
+            print()
+
+            row_list = [] # list for each row
+            text = input_file.readlines()
+            for row in text : # row is the string type
+                # convert comma-delimited string to the list
+                row_list = row.split(',')
+
+
+                # call the function 'validate_year(year_of_assessment)' 
+                result_year = validate_year(row_list[0])
+                if result_year == True :
+                    continue # move the row for the next step of validation
+                else :
+                    error_file.write(row)
+
+
+
+                # call the function "validate_tax_value(tax)"
+                for n in range(0,13) :
+                    result_tax = validate_tax_value(row_list[n])
+                    if result_tax == True :
+                        continue
+                    else:
+                        error_file.write(row)
+
+                # validate the last column's values
+
+                result_tax = validate_tax_value(row_list[13])
+                if result_tax == True :
+                    output_file.write(row)
+                else :
+                    error_file.write(row)
+
+                
+print('The output file:')
+
+with open(output_file, 'r') as good_data :
+    text = good_data.readlines()
+    print(text)
+
+
+
             
+'''
             line_count = 0
             for line in input_file :
                 if line_count == 0 : # the header
                     header = line
+                    print('*****************')
+                    print(header)
+                    print('*****************')
                     
                     output_writer.writerow(header) # write the header to the output file
                     error_writer.writerow(header) # write the header to the errors file
                     line_count += 1
 
                 print(line, end = '')
-
+            
             
 
-    '''
+    
 df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv', 
                     usecols = 
                     [
