@@ -76,29 +76,31 @@ def validate_tax_value(tax) :
 
 
 
-'''    
+data_file_path = 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv'
+output_file_path = 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income_Output.csv'
+error_file_path= 'E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income_Errors.csv'
 # read the initial data and perform the data validation
-with open(data_file, mode = 'r') as input_file :
+with open(data_file_path, mode = 'r') as input_file :
     with open(output_file_path, mode = 'w', newline = '') as output_file :
-        with open(error_file, mode = 'r', newline = '') as error_file :
-            file_reader = csv.reader(data_file, delimiter =',')
-            file_writer = csv.writer(output_file, delimiter = ',')
+        with open(error_file_path, mode = 'w', newline = '') as error_file :
+            input_reader = csv.reader(input_file, delimiter =',')
+            output_writer = csv.writer(output_file, delimiter = ',')
             error_writer = csv.writer(error_file, delimiter = ',')
             
             line_count = 0
-            for line in file_reader :
+            for line in input_file :
                 if line_count == 0 : # the header
                     header = line
                     
-                    ofile_writer.writerow(header) # write the header to the output file
-                    errors_writer.writerow(header) # write the header to the errors file
+                    output_writer.writerow(header) # write the header to the output file
+                    error_writer.writerow(header) # write the header to the errors file
                     line_count += 1
 
-            for row in file_reader:
-'''       
+                print(line, end = '')
 
+            
 
-
+    '''
 df = pd.read_csv('E:\_Python_Projects_Data\Companies_Income_Annual\Chargeable_Income.csv', 
                     usecols = 
                     [
@@ -123,7 +125,8 @@ print('____________________________________________________________________')
 
 df = df.sort_values(by = 'year_of_assessment', ascending = True)
 print(df)
-'''
+
+
 # to validate the year_of_assessment, apply to this column
 print(df['year_of_assessment'])
 
@@ -144,8 +147,7 @@ def year_validation(year_value) :
 
 df['year_of_assessment'] = df['year_of_assessment'].apply(lambda x: year_validation(x))
 # print(df['year_of_assessment'])
-'''
-
+    '''
 
 
 
